@@ -1,0 +1,21 @@
+{
+  "name": "webbylab-test-task",
+  "version": "1.0.0",
+  "description": "Test task for Webbylab(Node.js backend developer position)",
+  "main": "index.js",
+  "repository": "https://github.com/batovpasha/webbylab-test-task",
+  "author": "Pavlo Batov <batovpasha@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "dev": "./node_modules/nodemon/bin/nodemon.js index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
