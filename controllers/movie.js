@@ -107,8 +107,6 @@ const getGetMovieByStarName = (req, res) => {
 const postImportFromTextFile = (req, res) => {
   let movies;
 
-  console.log(req.body);
-
   try {
     movies = parseMovies(req.body);
   } catch (error) {
