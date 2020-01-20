@@ -9,6 +9,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
+    "client": "node client.js",
     "dev": "./node_modules/nodemon/bin/nodemon.js server.js",
     "test": "./node_modules/mocha/bin/mocha --exit"
   },
