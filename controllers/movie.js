@@ -146,9 +146,14 @@ const postImportFromTextFile = (req, res) => {
 
   try {
     movies = parseMovies(req.body);
+    
+    if (!movies.length) {
+      res.status(400).json({ error: 'Empty file! Please, send file with data!' });
+      return;
+    }
   } catch (error) {
     console.error(error);
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.toString() });
     return;
   }
 
