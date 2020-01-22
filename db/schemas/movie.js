@@ -10,6 +10,7 @@ const movie = new mongoose.Schema({
     type: Number,
     required: true,
     min: [1888, 'Release year is too small!'], // year when first movie occurs
+    max: [new Date().getFullYear(), 'Release year is bigger than current year!'], // current year
   },
   format: {
     type: String,
