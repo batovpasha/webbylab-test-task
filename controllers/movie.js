@@ -6,12 +6,25 @@ const {
   getMovieByTitle,
   getMovieByStarName,
   addAllMovies,
+  getMovieByAllFieldValues,
 } = require('../repository/movie');
 
 const parseMovies = require('../lib/movie-parser');
 
-const postAddMovie = (req, res) => {
+const postAddMovie = async (req, res) => {
   const { title, releaseYear, format, stars } = req.body;
+
+  const sameMovie = await getMovieByAllFieldValues( 
+    title, 
+    releaseYear, 
+    format, 
+    stars 
+  );
+
+  if (sameMovie) {
+    res.status(400).json({ error: 'Current movie already exists in database!' });
+    return;   
+  }
 
   addMovie(title, releaseYear, format, stars)
     .then(movie => res.status(201).json(movie))
