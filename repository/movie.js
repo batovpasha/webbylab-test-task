@@ -13,7 +13,7 @@ module.exports = {
   },
   getMovieByTitle: async (title) => await Movie.findOne({ title }),
   getMovieByStarName: async (starName) => {
-    return await Movie.findOne({ stars: starName });
+    return await Movie.find({ stars: starName });
   },
   addAllMovies: async (movies) => await Movie.insertMany(movies),
   getMovieByAllFieldValues: async (title, releaseYear, format, stars) => {

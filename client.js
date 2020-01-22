@@ -50,6 +50,12 @@ const options = {
     }
   },
   2: async function() {
+    const movieList = await fetch(`${SERVER_URL}/movie/list`)
+      .then(res => res.json());
+      
+    console.log('All movies:');
+    console.log(movieList);
+
     const id = await question('Enter movie id: ');
 
     const body = { id };
@@ -72,6 +78,12 @@ const options = {
     }
   },
   3: async function() {
+    const movieList = await fetch(`${SERVER_URL}/movie/list`)
+      .then(res => res.json());
+      
+    console.log('All movies:');
+    console.log(movieList);
+
     const id = await question('Enter movie id: ');
 
     console.clear();
