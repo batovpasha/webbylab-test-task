@@ -79,7 +79,31 @@ const getGetMovie = (req, res) => {
 
 const getGetMovieListSortedByTitleInAscendingOrder = (req, res) => {
   getAllMoviesSortedByTitleInAscendingOrder()
-    .then(movies => res.status(200).json(movies))
+    .then(movies => {
+      const mutableMovies = [];
+
+      for (const movie of movies) {
+        mutableMovies.push({
+          title: movie.title,
+          releaseYear: movie.releaseYear,
+          format: movie.format,
+          stars: [...movie.stars]
+        });
+      }
+
+      const moviesWhichTitleStartsWithLowerCaseChar = mutableMovies
+        .filter(movie => movie.title.charAt(0) === movie.title.charAt(0).toLowerCase())
+        .sort((a, b) => a.title.localeCompare(b.title));
+
+      const moviesWhichTitleStartsWithUpperCaseChar = mutableMovies
+        .filter(movie => movie.title.charAt(0) === movie.title.charAt(0).toUpperCase())
+        .sort((a, b) => a.title.localeCompare(b.title));
+
+      res.status(200).json([
+        ...moviesWhichTitleStartsWithLowerCaseChar,
+        ...moviesWhichTitleStartsWithUpperCaseChar
+      ]);
+    })
     .catch(error => res.status(500).json({ error }));
 };
 
