@@ -11,15 +11,15 @@ yarn
 ## Usage
 Firstly, create a .env file and put MonogDB connection URL there(see .env_example for details)
 ```bash
-npm start # starts an app server
+yarn start # starts an app server
 # then you must open a new terminal window
-npm run client # starts Node.js client for our app
+yarn run client # starts Node.js client for our app
 ```
 Next, follow the instructions in Node.js client
 
 ## Testing
 ```bash
-npm run test
+yarn run test
 ```
 
 ## App architecture
