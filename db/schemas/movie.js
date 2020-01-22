@@ -20,6 +20,12 @@ const movie = new mongoose.Schema({
   stars: { // list of actors
     type: [String],
     required: true,
+    validate: {
+      validator: (arrayOfStarNames) => {
+        return arrayOfStarNames.length === new Set(arrayOfStarNames).size; // allows only unique values
+      },
+      message: props => 'Please, enter only unique star names!',
+    }
   }, 
 });
 
