@@ -76,7 +76,7 @@ const options = {
 
     console.clear();
 
-    const response = await fetch(`${SERVER_URL}/movie/info?id=${id}`);
+    const response = await fetch(encodeURI(`${SERVER_URL}/movie/info?id=${id}`));
 
     if (response.ok) {
       const body = await response.json();
@@ -107,7 +107,7 @@ const options = {
     console.clear();
 
     const response = await fetch(
-      `${SERVER_URL}/movie/infoByTitle?title=${title}`
+      encodeURI(`${SERVER_URL}/movie/infoByTitle?title=${title}`)
     );
 
     if (response.ok) {
@@ -125,7 +125,7 @@ const options = {
     console.clear();
 
     const response = await fetch(
-      `${SERVER_URL}/movie/infoByStarName?starName=${starName}`
+      encodeURI(`${SERVER_URL}/movie/infoByStarName?starName=${starName}`)
     );
 
     if (response.ok) {
